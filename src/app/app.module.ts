@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChartsComponent } from './charts/charts.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { AboutComponent } from './about/about.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
