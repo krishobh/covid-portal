@@ -10,7 +10,7 @@ export class BaseWebService {
   private baseURL: string = 'https://covid-193.p.rapidapi.com';
 
   constructor( private http: HttpClient) { 
-    
+    this.http = http;
   }
 
   private async callWebService(httpMethod: string, url: string, options: any) {

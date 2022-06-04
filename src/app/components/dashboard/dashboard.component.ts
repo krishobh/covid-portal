@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface IMenuList {
-  "id": string,
-  "name": string,
-  "redirect_to": string,
-  "icon": string
-}
+import { DashboardService } from './dashboard.service';
+import { IMenuList } from '../../models/dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,41 +11,14 @@ interface IMenuList {
 export class DashboardComponent implements OnInit {
   menuList: IMenuList[] = []
 
-  constructor() { }
+  constructor( private _dashboardSrv: DashboardService) { }
 
   ngOnInit(): void {
     this.loadMenuList();
   }
 
-  async loadMenuList() {
-    const menu:IMenuList[] =  [
-      {
-        "id": "worldMap",
-        "name": "Dashboard",
-        "redirect_to": "/dashboard",
-        "icon": ""
-      },
-      {
-        "id": "charts",
-        "name": "Charts",
-        "redirect_to": "/charts",
-        "icon": "bx-user-plus"
-      }, 
-      {
-        "id": "statistics",
-        "name": "Statistics",
-        "redirect_to": "/statistics",
-        "icon": "bx-category"
-      },
-      {
-        "id": "about",
-        "name": "About",
-        "redirect_to": "/about",
-        "icon": "bx-first-aid"
-      }
-    ];
-
-    this.menuList = menu;
+  loadMenuList() {
+    this.menuList = this._dashboardSrv.fetchMenuList();
   }
 
 }

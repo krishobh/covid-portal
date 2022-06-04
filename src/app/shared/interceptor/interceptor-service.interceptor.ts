@@ -30,7 +30,7 @@ export class InterceptorServiceInterceptor implements HttpInterceptor {
    
     return next.handle(tokenizedReq).pipe(
       catchError(this.handleError.bind(this)),
-      finalize( () => this.loaderService.setLoading(false, request.url)),
+      finalize(() => this.loaderService.setLoading(false, request.url)),
     )
   }
 
