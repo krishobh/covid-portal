@@ -15,6 +15,7 @@ import { AboutComponent } from './components/about/about.component';
 import { MapComponent } from './components/map/map.component';
 import { InterceptorServiceInterceptor } from './shared/interceptor/interceptor-service.interceptor';
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
+import { HistoryComponent } from './components/history/history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { FormsModule,ReactiveFormsModule } from "@angular/forms";
     ChartsComponent,
     StatisticsComponent,
     AboutComponent,
-    MapComponent
+    MapComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

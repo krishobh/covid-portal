@@ -8,17 +8,17 @@ export const menuList:IMenuList[] =  [
       "icon": "bx-first-aid"
     },
     {
-      "id": "charts",
-      "name": "Charts",
-      "redirect_to": "/charts",
-      "icon": "bx-chart"
-    }, 
-    {
       "id": "statistics",
       "name": "Statistics",
       "redirect_to": "/statistics",
       "icon": "bx-chart"
     },
+    {
+      "id": "history",
+      "name": "Historical Data",
+      "redirect_to": "/history",
+      "icon": "bx-chart"
+    }, 
     {
       "id": "about",
       "name": "About",
