@@ -14,6 +14,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { AboutComponent } from './components/about/about.component';
 import { MapComponent } from './components/map/map.component';
 import { InterceptorServiceInterceptor } from './shared/interceptor/interceptor-service.interceptor';
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { InterceptorServiceInterceptor } from './shared/interceptor/interceptor-
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
