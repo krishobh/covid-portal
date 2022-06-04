@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatisticsService } from './statistics.service';
 
 @Component({
   selector: 'app-statistics',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statistics.component.less']
 })
 export class StatisticsComponent implements OnInit {
-
-  constructor() { }
+  statistics = [];
+  constructor(private _mapSrv: StatisticsService) { }
 
   ngOnInit(): void {
+
+    this._mapSrv.fetchData().
+      subscribe( data => this.statistics = data.response );
+
   }
 
 }

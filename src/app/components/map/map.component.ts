@@ -16,8 +16,11 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._mapSrv.fetchMapData().
-      subscribe( data => this.contriesList = data.response );
+    this._mapSrv.fetchCountryList().
+      subscribe( data => {
+        this.contriesList = data.response;
+        this._mapSrv.setLocalData(data.response);
+      });
 
     this.drawMap();
   }
