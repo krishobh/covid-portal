@@ -4,7 +4,7 @@ export const menuList:IMenuList[] =  [
     {
       "id": "worldMap",
       "name": "Dashboard",
-      "redirect_to": "/dashboard",
+      "redirect_to": "/map",
       "icon": "bx-first-aid"
     },
     {

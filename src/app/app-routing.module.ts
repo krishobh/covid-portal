@@ -5,11 +5,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ChartsComponent } from './components/charts/charts.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/about/about.component';
+import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [
   { 
     path: '', component: DashboardComponent, children: [
-      { path: '', redirectTo: 'dashboard', pathMatch:'full'},
+      { path: '', redirectTo: 'map', pathMatch:'full'},
+      { path: 'map',  component: MapComponent },
       { path: 'dashboard',  component: DashboardComponent },
       { path: 'charts',  component: ChartsComponent },
       { path: 'statistics',  component: StatisticsComponent },

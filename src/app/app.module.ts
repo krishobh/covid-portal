@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsComponent } from './components/charts/charts.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/about/about.component';
+import { MapComponent } from './components/map/map.component';
+import { InterceptorServiceInterceptor } from './shared/interceptor/interceptor-service.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { AboutComponent } from './components/about/about.component';
     PageNotFoundComponent,
     ChartsComponent,
     StatisticsComponent,
-    AboutComponent
+    AboutComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,11 @@ import { AboutComponent } from './components/about/about.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorServiceInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

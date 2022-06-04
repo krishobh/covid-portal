@@ -4,12 +4,11 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpResponse,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { finalize, Observable, throwError } from 'rxjs';
 import { LoaderService } from '../services/loader.service';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { NotificationService } from '../services/notification.service';
 import { Router } from '@angular/router';
 
@@ -19,15 +18,18 @@ export class InterceptorServiceInterceptor implements HttpInterceptor {
   constructor(private loaderService: LoaderService, private notificationService: NotificationService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    const baseURL = 'https://covid-193.p.rapidapi.com';
     this.loaderService.setLoading(true, request.url);
-    
+
     let tokenizedReq = request.clone({
+      url: baseURL + request.url ,
       setHeaders: {
         'X-RapidAPI-Host': 'covid-193.p.rapidapi.com',
 		    'X-RapidAPI-Key': 'cbdf8f4b51mshfbd43e98b753cbep1c98f0jsn6e0419c39e6a'
       }
-    })
-   
+    });
+
     return next.handle(tokenizedReq).pipe(
       catchError(this.handleError.bind(this)),
       finalize(() => this.loaderService.setLoading(false, request.url)),
@@ -60,7 +62,6 @@ export class InterceptorServiceInterceptor implements HttpInterceptor {
       }
     }
 
-    // return throwError(errorResponse);
-    throw new Error(errorResponse);
+    return throwError(errorResponse);
   }
 }
