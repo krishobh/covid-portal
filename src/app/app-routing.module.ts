@@ -7,7 +7,7 @@ const routes: Routes = [
   { 
     path: '', component: DashboardComponent, children: [
       { path: '', redirectTo: 'map', pathMatch:'full'},
-      { path: 'map', loadChildren: () => import("./components/map/map.module").then( m => m.MapModule ) },
+      { path: 'map', data: { preload: true }, loadChildren: () => import("./components/map/map.module").then( m => m.MapModule ) },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'history', loadChildren: () => import("./components/history/history.module").then( m => m.HistoryModule ) },
       { path: 'statistics', loadChildren: () => import("./components/statistics/statistics.module").then( m => m.StatisticsModule ) },
