@@ -1,20 +1,22 @@
 import { NgModule} from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { StatisticsComponent } from "./statistics.component";
+import { MapComponent } from "./map.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-    declarations:[StatisticsComponent],
+    declarations:[MapComponent],
     imports: [
+        FormsModule,
         RouterModule.forChild([
             {
                 path: '',
                 pathMatch: 'full',
-                component: StatisticsComponent
+                component: MapComponent
             }
         ])
     ]
 })
 
-export class StatisticsModule {
+export class MapModule {
 
 }
