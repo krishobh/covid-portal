@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CustomPreloadingStrategyService } from './shared/services/custom-preloading-strategy.service';
 
 const routes: Routes = [
   { 
@@ -14,11 +15,15 @@ const routes: Routes = [
     ]
   },
   { path: '**', redirectTo: 'pageNotFound'},
-  { path: 'pageNotFound', loadChildren: () => import("./components/page-not-found/page-not-found.module").then( m => m.PageNotFoundModule ) }
+  { path: 'pageNotFound', data: { preload: true }, loadChildren: () => import("./components/page-not-found/page-not-found.module").then( m => m.PageNotFoundModule ) }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+      RouterModule.forRoot(routes, {
+          preloadingStrategy: CustomPreloadingStrategyService
+      })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
