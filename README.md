@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
+#### Environments & Main libraries used
+
+* `node version v16.14.2`
+* `angular version v13.3.2`
+* `bootstrap version v5.1.3`
+* `d3js version v7.4.4`
+
+#### `git clone git@github.com:krishobh/covid-portal.git`
+
+#### `cd covid-portal`
+
+In the project directory, you can run:
+#### `npm install`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
