@@ -19,7 +19,7 @@ export class InterceptorServiceInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const baseURL = 'https://covid-193.p.rapidapi.com';
+    const baseURL:string = 'https://covid-193.p.rapidapi.com';
     this.loaderService.setLoading(true, request.url);
 
     let tokenizedReq = request.clone({

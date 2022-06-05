@@ -10,7 +10,6 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsComponent } from './components/charts/charts.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/about/about.component';
 import { MapComponent } from './components/map/map.component';
 import { InterceptorServiceInterceptor } from './shared/interceptor/interceptor-service.interceptor';
@@ -22,7 +21,6 @@ import { HistoryComponent } from './components/history/history.component';
     DashboardComponent,
     PageNotFoundComponent,
     ChartsComponent,
-    StatisticsComponent,
     AboutComponent,
     MapComponent,
     HistoryComponent
