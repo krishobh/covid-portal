@@ -7,11 +7,12 @@
                 <label for="country-name" class="col-sm-4 col-form-label"></label>
                 <div class="col-sm-10">
                     <input class="form-control" list="countryOptions" [ngModel]="selectedCountry" (ngModelChange)="queryEntered($event)" name="patient" placeholder="Search country">
-                    <button (click)="clearQuery()">Clear</button>
                     <datalist id="countryOptions">
                         <option *ngFor="let country of contriesList" [value]="country">{{country}}</option>
                     </datalist>
-                    
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-primary" (click)="clearQuery()">Clear</button>
                 </div>
             </div>
         </div>

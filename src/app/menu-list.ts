@@ -15,7 +15,7 @@ export const menuList:IMenuList[] =  [
     },
     {
       "id": "history",
-      "name": "Historical Data",
+      "name": "History",
       "redirect_to": "/history",
       "icon": "bx-chart"
     }, 

@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./map.component.less']
 })
 export class MapComponent implements OnInit, OnDestroy {
-  mapSubscription$: Subscription | undefined;
+  private mapSubscription$: Subscription | undefined;
   public contriesList = [];
   public selectedCountry: string = '';
 
@@ -17,7 +17,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this._mapSrv.fetchCountryList().
+    this.mapSubscription$ = this._mapSrv.fetchCountryList().
       subscribe( data => {
         this.contriesList = data.response;
         this._mapSrv.setLocalData(data.response);
