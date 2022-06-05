@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { StatisticsService } from './statistics.service';
 import * as d3 from 'd3';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,8 @@ interface chartData {
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.less']
+  styleUrls: ['./statistics.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatisticsComponent implements OnInit, OnDestroy {
   statisticsSubscription$: Subscription | undefined;
